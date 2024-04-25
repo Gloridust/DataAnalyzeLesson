@@ -11,9 +11,6 @@ X_adult = X_adult.drop(["education-num", "fnlwgt"], axis="columns")
 print(X_adult)
 print(X_adult.dtypes)
 
-# 打印 X_adult 数据
-# print(X_adult)
-
 # 导入 train_test_split 函数用于划分数据集
 from sklearn.model_selection import train_test_split
 # 导入 datasets 模块
