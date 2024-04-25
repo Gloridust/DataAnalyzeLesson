@@ -7,8 +7,9 @@ X_adult, y_adult = fetch_openml("adult", version=2, return_X_y=True)
 # 删除 X_adult 中的冗余特征列和非特征列，即 "education-num" 和 "fnlwgt" 列
 X_adult = X_adult.drop(["education-num", "fnlwgt"], axis="columns")
 
-# 打印 X_adult 的数据类型
-X_adult.dtypes
+# 打印 X_adult 的数据和类型
+print(X_adult)
+print(X_adult.dtypes)
 
 # 打印 X_adult 数据
 # print(X_adult)
