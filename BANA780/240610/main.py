@@ -38,7 +38,15 @@ def convert_length_of_stay(value):
 claims_data['LengthOfStay'] = claims_data['LengthOfStay'].apply(convert_length_of_stay)
 
 # 处理 CharlsonIndex 列
-claims_data['CharlsonIndex'] = claims_data['CharlsonIndex'].replace({'1-2': 1.5, '0': 0, '3+': 3}).astype(float)
+def convert_charlson_index(value):
+    if '-' in value:
+        return (int(value.split('-')[0]) + int(value.split('-')[1])) / 2
+    elif '+' in value:
+        return int(value.replace('+', '').strip())
+    else:
+        return float(value)
+
+claims_data['CharlsonIndex'] = claims_data['CharlsonIndex'].apply(convert_charlson_index)
 
 # 处理 Members 数据集的缺失值和数据类型
 members_data['AgeAtFirstClaim'] = members_data['AgeAtFirstClaim'].ffill()
