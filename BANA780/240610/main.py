@@ -56,7 +56,13 @@ members_data['Sex'] = members_data['Sex'].fillna('Unknown')
 drug_count_data['DrugCount'] = drug_count_data['DrugCount'].replace({'7+': 7}).astype(int)
 
 # 处理 LabCount 数据集的缺失值和数据类型
-lab_count_data['LabCount'] = lab_count_data['LabCount'].astype(int)
+def convert_lab_count(value):
+    if '+' in value:
+        return int(value.replace('+', '').strip())
+    else:
+        return int(value)
+
+lab_count_data['LabCount'] = lab_count_data['LabCount'].apply(convert_lab_count)
 
 # 删除不重要的变量
 claims_data = claims_data.drop(columns=['Vendor', 'PCP'])
