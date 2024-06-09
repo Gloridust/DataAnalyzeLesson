@@ -22,7 +22,19 @@ claims_data['LengthOfStay'] = claims_data['LengthOfStay'].fillna('0')
 claims_data['PayDelay'] = pd.to_numeric(claims_data['PayDelay'], errors='coerce').fillna(0).astype(int)
 
 # 处理 LengthOfStay 列
-claims_data['LengthOfStay'] = claims_data['LengthOfStay'].replace({'30+': 30, '1 day': 1}).astype(int)
+def convert_length_of_stay(value):
+    if 'day' in value:
+        return 1
+    elif 'week' in value:
+        return int(value.split('-')[0].strip()) * 7
+    elif 'month' in value:
+        return int(value.split('-')[0].strip()) * 30
+    elif '+' in value:
+        return int(value.replace('+', '').strip())
+    else:
+        return int(value)
+
+claims_data['LengthOfStay'] = claims_data['LengthOfStay'].apply(convert_length_of_stay)
 
 # 处理 CharlsonIndex 列
 claims_data['CharlsonIndex'] = claims_data['CharlsonIndex'].replace({'1-2': 1.5, '0': 0, '3+': 3}).astype(float)
