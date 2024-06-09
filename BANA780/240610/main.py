@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 
 # 读取数据
 claims_data = pd.read_csv('Claims.csv')
@@ -26,9 +27,9 @@ def convert_length_of_stay(value):
     if 'day' in value:
         return 1
     elif 'week' in value:
-        return int(value.split('-')[0].strip()) * 7
+        return int(re.search(r'\d+', value).group()) * 7
     elif 'month' in value:
-        return int(value.split('-')[0].strip()) * 30
+        return int(re.search(r'\d+', value).group()) * 30
     elif '+' in value:
         return int(value.replace('+', '').strip())
     else:
