@@ -86,7 +86,7 @@ plt.savefig('/mnt/data/Figure_1.png')
 plt.show()
 ```
 
-![Word Cloud](mnt/data/Figure_1.png)
+![Word Cloud](Figure_1.png)
 
 #### Conclusion
 
