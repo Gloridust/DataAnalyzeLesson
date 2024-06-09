@@ -89,3 +89,9 @@ print("Drug Count Data Head:")
 print(drug_count_data.head())
 print("Lab Count Data Head:")
 print(lab_count_data.head())
+
+# 保存处理后的数据
+claims_data.to_csv('Processed_Claims.csv', index=False)
+members_data.to_csv('Processed_Members.csv', index=False)
+drug_count_data.to_csv('Processed_DrugCount.csv', index=False)
+lab_count_data.to_csv('Processed_LabCount.csv', index=False)
