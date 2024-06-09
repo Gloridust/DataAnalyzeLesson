@@ -8,21 +8,27 @@ drug_count_data = pd.read_csv('DrugCount.csv')
 lab_count_data = pd.read_csv('LabCount.csv')
 
 # 处理 Claims 数据集的缺失值和数据类型
-claims_data['ProviderID'] = claims_data['ProviderID'].fillna(method='ffill')
-claims_data['Vendor'] = claims_data['Vendor'].fillna(method='ffill')
-claims_data['PCP'] = claims_data['PCP'].fillna(method='ffill')
-claims_data['Specialty'] = claims_data['Specialty'].fillna(method='ffill')
-claims_data['PlaceSvc'] = claims_data['PlaceSvc'].fillna(method='ffill')
-claims_data['DSFS'] = claims_data['DSFS'].fillna(method='ffill')
-claims_data['PrimaryConditionGroup'] = claims_data['PrimaryConditionGroup'].fillna(method='ffill')
-claims_data['ProcedureGroup'] = claims_data['ProcedureGroup'].fillna(method='ffill')
+claims_data['ProviderID'] = claims_data['ProviderID'].ffill()
+claims_data['Vendor'] = claims_data['Vendor'].ffill()
+claims_data['PCP'] = claims_data['PCP'].ffill()
+claims_data['Specialty'] = claims_data['Specialty'].ffill()
+claims_data['PlaceSvc'] = claims_data['PlaceSvc'].ffill()
+claims_data['DSFS'] = claims_data['DSFS'].ffill()
+claims_data['PrimaryConditionGroup'] = claims_data['PrimaryConditionGroup'].ffill()
+claims_data['ProcedureGroup'] = claims_data['ProcedureGroup'].ffill()
 claims_data['LengthOfStay'] = claims_data['LengthOfStay'].fillna('0')
+
+# 处理 PayDelay 列
 claims_data['PayDelay'] = pd.to_numeric(claims_data['PayDelay'], errors='coerce').fillna(0).astype(int)
-claims_data['LengthOfStay'] = claims_data['LengthOfStay'].replace({'30+': 30}).astype(int)
+
+# 处理 LengthOfStay 列
+claims_data['LengthOfStay'] = claims_data['LengthOfStay'].replace({'30+': 30, '1 day': 1}).astype(int)
+
+# 处理 CharlsonIndex 列
 claims_data['CharlsonIndex'] = claims_data['CharlsonIndex'].replace({'1-2': 1.5, '0': 0, '3+': 3}).astype(float)
 
 # 处理 Members 数据集的缺失值和数据类型
-members_data['AgeAtFirstClaim'] = members_data['AgeAtFirstClaim'].fillna(method='ffill')
+members_data['AgeAtFirstClaim'] = members_data['AgeAtFirstClaim'].ffill()
 members_data['Sex'] = members_data['Sex'].fillna('Unknown')
 
 # 处理 DrugCount 数据集的缺失值和数据类型
