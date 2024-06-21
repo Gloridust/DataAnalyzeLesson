@@ -19,7 +19,7 @@ plt.plot(X,C,label='cos')   # label:标签
 plt.plot(X,S,label='sin')
 
 # 添加标题
-plt.title('Cosine and Sine Functions')
+plt.title('Title: Cosine and Sine Functions')
 
 # 添加轴标签
 plt.xlabel('X values')
