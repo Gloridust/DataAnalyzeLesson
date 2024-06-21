@@ -1,3 +1,5 @@
 .ipynb_checkpoints/
 BANA780/240610/Claims.csv
 BANA780/240610/Processed_Claims.csv
+BANA780/240621/data/test_transaction.csv
+BANA780/240621/data/train_transaction.csv
