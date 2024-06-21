@@ -1,9 +1,9 @@
 import pandas as pd
 
 # 加载数据
-train_transaction = pd.read_csv('./data/train_transaction_example.csv')
+train_transaction = pd.read_csv('./data/train_transaction.csv')
 train_identity = pd.read_csv('./data/train_identity.csv')
-test_transaction = pd.read_csv('./data/test_transaction_example.csv')
+test_transaction = pd.read_csv('./data/test_transaction.csv')
 test_identity = pd.read_csv('./data/test_identity.csv')
 sample_submission = pd.read_csv('./data/sample_submission.csv')
 
@@ -49,14 +49,18 @@ from sklearn.metrics import classification_report, roc_auc_score
 import category_encoders as ce
 
 # 加载数据
-train_transaction = pd.read_csv('./data/train_transaction_example.csv')
+train_transaction = pd.read_csv('./data/train_transaction.csv')
 train_identity = pd.read_csv('./data/train_identity.csv')
-test_transaction = pd.read_csv('./data/test_transaction_example.csv')
+test_transaction = pd.read_csv('./data/test_transaction.csv')
 test_identity = pd.read_csv('./data/test_identity.csv')
 
 # 合并数据
 train_data = pd.merge(train_transaction, train_identity, on='TransactionID', how='left')
 test_data = pd.merge(test_transaction, test_identity, on='TransactionID', how='left')
+
+# 检查训练数据是否包含欺诈交易
+if train_data['isFraud'].sum() == 0:
+    print("训练数据集中没有欺诈交易样本，无法训练模型。")
 
 # 对齐训练集和测试集的列
 train_columns = train_data.columns
@@ -91,35 +95,38 @@ X = train_data.drop(['isFraud', 'TransactionID'], axis=1)
 y = train_data['isFraud']
 
 # 检查数据分布
-print("Class distribution in y:")
+print("Class distribution in y before split:")
 print(y.value_counts())
 
 # 确保分割时每个类别都有样本
-X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+if y.nunique() > 1:
+    X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
-# 检查分割后数据集的类别分布
-print("Class distribution in y_train:")
-print(y_train.value_counts())
-print("Class distribution in y_valid:")
-print(y_valid.value_counts())
+    # 检查分割后数据集的类别分布
+    print("Class distribution in y_train:")
+    print(y_train.value_counts())
+    print("Class distribution in y_valid:")
+    print(y_valid.value_counts())
 
-# 模型训练
-model = RandomForestClassifier(n_estimators=100, random_state=42)
-model.fit(X_train, y_train)
+    # 模型训练
+    model = RandomForestClassifier(n_estimators=100, random_state=42)
+    model.fit(X_train, y_train)
 
-# 模型评估
-y_pred = model.predict(X_valid)
-print(classification_report(y_valid, y_pred))
-try:
-    roc_auc = roc_auc_score(y_valid, y_pred)
-    print("ROC-AUC Score:", roc_auc)
-except ValueError as e:
-    print(e)
+    # 模型评估
+    y_pred = model.predict(X_valid)
+    print(classification_report(y_valid, y_pred))
+    try:
+        roc_auc = roc_auc_score(y_valid, y_pred)
+        print("ROC-AUC Score:", roc_auc)
+    except ValueError as e:
+        print(e)
 
-# 在预测之前删除 'isFraud' 列
-X_test = test_data.drop(['TransactionID', 'isFraud'], axis=1, errors='ignore')
-test_data['isFraud'] = model.predict(X_test)
+    # 在预测之前删除 'isFraud' 列
+    X_test = test_data.drop(['TransactionID', 'isFraud'], axis=1, errors='ignore')
+    test_data['isFraud'] = model.predict(X_test)
 
-# 生成提交文件
-submission = test_data[['TransactionID', 'isFraud']]
-submission.to_csv('./data/submission.csv', index=False)
+    # 生成提交文件
+    submission = test_data[['TransactionID', 'isFraud']]
+    submission.to_csv('./data/submission.csv', index=False)
+else:
+    print("训练数据集中只有一个类别，无法进行有效的模型训练和评估。")
