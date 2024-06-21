@@ -1,0 +1,355 @@
+Train Transaction Data Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 590540 entries, 0 to 590539
+Columns: 394 entries, TransactionID to V339
+dtypes: float64(376), int64(4), object(14)
+memory usage: 1.7+ GB
+None
+
+Train Identity Data Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 144233 entries, 0 to 144232
+Data columns (total 41 columns):
+ #   Column         Non-Null Count   Dtype
+---  ------         --------------   -----
+ 0   TransactionID  144233 non-null  int64
+ 1   id_01          144233 non-null  float64
+ 2   id_02          140872 non-null  float64
+ 3   id_03          66324 non-null   float64
+ 4   id_04          66324 non-null   float64
+ 5   id_05          136865 non-null  float64
+ 6   id_06          136865 non-null  float64
+ 7   id_07          5155 non-null    float64
+ 8   id_08          5155 non-null    float64
+ 9   id_09          74926 non-null   float64
+ 10  id_10          74926 non-null   float64
+ 11  id_11          140978 non-null  float64
+ 12  id_12          144233 non-null  object
+ 13  id_13          127320 non-null  float64
+ 14  id_14          80044 non-null   float64
+ 15  id_15          140985 non-null  object
+ 16  id_16          129340 non-null  object
+ 17  id_17          139369 non-null  float64
+ 18  id_18          45113 non-null   float64
+ 19  id_19          139318 non-null  float64
+ 20  id_20          139261 non-null  float64
+ 21  id_21          5159 non-null    float64
+ 22  id_22          5169 non-null    float64
+ 23  id_23          5169 non-null    object
+ 24  id_24          4747 non-null    float64
+ 25  id_25          5132 non-null    float64
+ 26  id_26          5163 non-null    float64
+ 27  id_27          5169 non-null    object
+ 28  id_28          140978 non-null  object
+ 29  id_29          140978 non-null  object
+ 30  id_30          77565 non-null   object
+ 31  id_31          140282 non-null  object
+ 32  id_32          77586 non-null   float64
+ 33  id_33          73289 non-null   object
+ 34  id_34          77805 non-null   object
+ 35  id_35          140985 non-null  object
+ 36  id_36          140985 non-null  object
+ 37  id_37          140985 non-null  object
+ 38  id_38          140985 non-null  object
+ 39  DeviceType     140810 non-null  object
+ 40  DeviceInfo     118666 non-null  object
+dtypes: float64(23), int64(1), object(17)
+memory usage: 45.1+ MB
+None
+
+Test Transaction Data Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 506691 entries, 0 to 506690
+Columns: 393 entries, TransactionID to V339
+dtypes: float64(376), int64(3), object(14)
+memory usage: 1.5+ GB
+None
+
+Test Identity Data Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 141907 entries, 0 to 141906
+Data columns (total 41 columns):
+ #   Column         Non-Null Count   Dtype
+---  ------         --------------   -----
+ 0   TransactionID  141907 non-null  int64
+ 1   id-01          141907 non-null  float64
+ 2   id-02          136976 non-null  float64
+ 3   id-03          66481 non-null   float64
+ 4   id-04          66481 non-null   float64
+ 5   id-05          134750 non-null  float64
+ 6   id-06          134750 non-null  float64
+ 7   id-07          5059 non-null    float64
+ 8   id-08          5059 non-null    float64
+ 9   id-09          74338 non-null   float64
+ 10  id-10          74338 non-null   float64
+ 11  id-11          136778 non-null  float64
+ 12  id-12          141907 non-null  object
+ 13  id-13          130286 non-null  float64
+ 14  id-14          71357 non-null   float64
+ 15  id-15          136977 non-null  object
+ 16  id-16          125747 non-null  object
+ 17  id-17          135966 non-null  float64
+ 18  id-18          50875 non-null   float64
+ 19  id-19          135906 non-null  float64
+ 20  id-20          135633 non-null  float64
+ 21  id-21          5059 non-null    float64
+ 22  id-22          5062 non-null    float64
+ 23  id-23          5062 non-null    object
+ 24  id-24          4740 non-null    float64
+ 25  id-25          5039 non-null    float64
+ 26  id-26          5047 non-null    float64
+ 27  id-27          5062 non-null    object
+ 28  id-28          136778 non-null  object
+ 29  id-29          136778 non-null  object
+ 30  id-30          70659 non-null   object
+ 31  id-31          136625 non-null  object
+ 32  id-32          70671 non-null   float64
+ 33  id-33          70671 non-null   object
+ 34  id-34          72175 non-null   object
+ 35  id-35          136977 non-null  object
+ 36  id-36          136977 non-null  object
+ 37  id-37          136977 non-null  object
+ 38  id-38          136977 non-null  object
+ 39  DeviceType     136931 non-null  object
+ 40  DeviceInfo     115057 non-null  object
+dtypes: float64(23), int64(1), object(17)
+memory usage: 44.4+ MB
+None
+Merged Train Data Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 590540 entries, 0 to 590539
+Columns: 434 entries, TransactionID to DeviceInfo
+dtypes: float64(399), int64(4), object(31)
+memory usage: 1.9+ GB
+None
+
+Merged Test Data Info:
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 506691 entries, 0 to 506690
+Columns: 433 entries, TransactionID to DeviceInfo
+dtypes: float64(399), int64(3), object(31)
+memory usage: 1.6+ GB
+None
+Missing values in Train Data:
+card2           8933
+card3           1565
+card4           1577
+card5           4259
+card6           1571
+               ...
+id_36         449555
+id_37         449555
+id_38         449555
+DeviceType    449730
+DeviceInfo    471874
+Length: 414, dtype: int64
+
+Missing values in Test Data:
+card2           8654
+card3           3002
+card4           3086
+card5           4547
+card6           3007
+               ...
+id-36         369714
+id-37         369714
+id-38         369714
+DeviceType    369760
+DeviceInfo    391634
+Length: 385, dtype: int64
+c:\Users\gloridust\Documents\GitHub\DataAnalyzeLesson\BANA780\240621\main.py:59: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '-999' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+  train_data.fillna('-999', inplace=True)
+c:\Users\gloridust\Documents\GitHub\DataAnalyzeLesson\BANA780\240621\main.py:60: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '-999' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+  test_data.fillna('-999', inplace=True)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+C:\Users\gloridust\AppData\Local\Programs\Python\Python312\Lib\site-packages\category_encoders\ordinal.py:198: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  X[column] = X[column].astype("object").fillna(np.nan).map(col_mapping)
+Class distribution in y before SMOTE:
+isFraud
+0    569877
+1     20663
+Name: count, dtype: int64
+Class distribution in y after SMOTE:
+isFraud
+0    569877
+1    569877
+Name: count, dtype: int64
+Class distribution in y_train:
+isFraud
+1    455902
+0    455901
+Name: count, dtype: int64
+Class distribution in y_valid:
+isFraud
+0    113976
+1    113975
+Name: count, dtype: int64
+              precision    recall  f1-score   support
+
+           0       0.98      1.00      0.99    113976
+           1       1.00      0.98      0.99    113975
+
+    accuracy                           0.99    227951
+   macro avg       0.99      0.99      0.99    227951
+weighted avg       0.99      0.99      0.99    227951
+
+ROC-AUC Score: 0.9899890436137427
