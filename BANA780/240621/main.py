@@ -73,13 +73,20 @@ for col in test_columns:
 train_data = train_data[sorted(train_data.columns)]
 test_data = test_data[sorted(test_data.columns)]
 
-train_data.fillna(-999, inplace=True)
-test_data.fillna(-999, inplace=True)
+# 填充缺失值并将对象类型特征转换为字符串
+train_data.fillna('-999', inplace=True)
+test_data.fillna('-999', inplace=True)
 
+# 编码对象类型特征
 encoder = ce.OrdinalEncoder()
 train_data = encoder.fit_transform(train_data)
 test_data = encoder.transform(test_data)
 
+# 确保所有特征都是数值型
+train_data = train_data.apply(pd.to_numeric, errors='coerce')
+test_data = test_data.apply(pd.to_numeric, errors='coerce')
+
+# 特征和标签
 X = train_data.drop(['isFraud', 'TransactionID'], axis=1)
 y = train_data['isFraud']
 
@@ -109,8 +116,8 @@ try:
 except ValueError as e:
     print(e)
 
-# 预测测试集
-X_test = test_data.drop(['TransactionID'], axis=1)
+# 在预测之前删除 'isFraud' 列
+X_test = test_data.drop(['TransactionID', 'isFraud'], axis=1, errors='ignore')
 test_data['isFraud'] = model.predict(X_test)
 
 # 生成提交文件
