@@ -1,9 +1,10 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report, roc_auc_score
 import category_encoders as ce
 from imblearn.over_sampling import SMOTE
+import numpy as np
 
 # 加载数据
 train_transaction = pd.read_csv('./data/train_transaction.csv')
@@ -11,34 +12,9 @@ train_identity = pd.read_csv('./data/train_identity.csv')
 test_transaction = pd.read_csv('./data/test_transaction.csv')
 test_identity = pd.read_csv('./data/test_identity.csv')
 
-# 查看数据的基本信息
-print("Train Transaction Data Info:")
-print(train_transaction.info())
-print("\nTrain Identity Data Info:")
-print(train_identity.info())
-print("\nTest Transaction Data Info:")
-print(test_transaction.info())
-print("\nTest Identity Data Info:")
-print(test_identity.info())
-
 # 合并数据
 train_data = pd.merge(train_transaction, train_identity, on='TransactionID', how='left')
 test_data = pd.merge(test_transaction, test_identity, on='TransactionID', how='left')
-
-print("Merged Train Data Info:")
-print(train_data.info())
-print("\nMerged Test Data Info:")
-print(test_data.info())
-
-# 检查缺失值
-missing_train = train_data.isnull().sum()
-missing_test = test_data.isnull().sum()
-
-# 显示缺失值情况
-print("Missing values in Train Data:")
-print(missing_train[missing_train > 0])
-print("\nMissing values in Test Data:")
-print(missing_test[missing_test > 0])
 
 # 对齐训练集和测试集的列
 train_columns = train_data.columns
@@ -102,6 +78,11 @@ print(pd.Series(y_valid).value_counts())
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
+# 交叉验证模型性能
+cv_scores = cross_val_score(model, X_resampled, y_resampled, cv=5, scoring='roc_auc')
+print("Cross-validated AUC scores:", cv_scores)
+print("Mean AUC score:", np.mean(cv_scores))
+
 # 模型评估
 y_pred = model.predict(X_valid)
 print(classification_report(y_valid, y_pred))
@@ -114,6 +95,10 @@ except ValueError as e:
 # 在预测之前删除 'isFraud' 列
 X_test = test_data.drop(['TransactionID', 'isFraud'], axis=1, errors='ignore')
 test_data['isFraud'] = model.predict(X_test)
+
+# 检查预测结果的分布
+print("Predicted class distribution in test data:")
+print(test_data['isFraud'].value_counts())
 
 # 生成提交文件
 submission = test_data[['TransactionID', 'isFraud']]
