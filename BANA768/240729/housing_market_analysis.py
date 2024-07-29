@@ -170,14 +170,16 @@ print("1. Most popular number of bedrooms:", df['bedrooms'].mode().values[0])
 print("2. Average cash price: $", df['cashprice'].mean())
 print("3. Percentage of houses with fireplaces:", (df['fireplaces'] == 1).mean() * 100, "%")
 
+# 修改这部分代码
 if model_results is not None:
     print("4. Most influential factors in house choice (based on model coefficients):")
-    coefficients = pd.Series(model_results.params, index=model_results.model.exog_names)
-    coefficients = coefficients.abs().sort_values(ascending=False)
-    for feature, coef in coefficients.items():
-        print(f"   - {feature}: {coef}")
+    coefficients = pd.DataFrame(model_results.params, columns=['coef'])
+    coefficients['abs_coef'] = coefficients['coef'].abs()
+    coefficients = coefficients.sort_values('abs_coef', ascending=False)
+    for index, row in coefficients.iterrows():
+        print(f"   - {index}: {row['coef']}")
 
-# Save results to a file
+# 修改保存结果到文件的部分
 with open('housing_market_analysis_results.txt', 'w') as f:
     f.write("Housing Market Analysis Results\n\n")
     if model_results is not None:
@@ -199,5 +201,5 @@ with open('housing_market_analysis_results.txt', 'w') as f:
     
     if model_results is not None:
         f.write("4. Most influential factors in house choice (based on model coefficients):\n")
-        for feature, coef in coefficients.items():
-            f.write(f"   - {feature}: {coef}\n")
+        for index, row in coefficients.iterrows():
+            f.write(f"   - {index}: {row['coef']}\n")
