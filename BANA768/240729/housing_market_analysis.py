@@ -13,7 +13,7 @@ df_test = pd.read_csv('HousingMarketTest.csv')
 # Data preprocessing
 def preprocess_data(df):
     # Convert 'bedrooms' to numeric, handling non-numeric values
-    df['bedrooms'] = pd.to_numeric(df['bedrooms'].str.extract(r'(\d+)')[0], errors='coerce')
+    df['bedrooms'] = pd.to_numeric(df['bedrooms'], errors='coerce')
     
     # Convert 'fireplaces' to binary
     df['fireplaces'] = (df['fireplaces'] == 'yes').astype(int)
@@ -108,8 +108,12 @@ def fit_mnl_model(train):
         print(f"Missing features: {missing_features}. Cannot fit the model.")
         return None
     
+    # Convert to numpy arrays
+    y = train['choice'].values
+    X = train[features].values
+    
     # Fit the model
-    model = MNLogit(train['choice'], train[features])
+    model = MNLogit(y, X)
     results = model.fit()
     
     print(results.summary())
@@ -136,10 +140,11 @@ def predict_choice_shares(model, test_data):
         print(f"Missing features in test data: {missing_features}. Cannot predict choice shares.")
         return None
     
-    predictions = model.predict(test_data[features])
+    X_test = test_data[features].values
+    predictions = model.predict(X_test)
     
     # Calculate average choice shares
-    choice_shares = predictions.mean()
+    choice_shares = predictions.mean(axis=0)
     
     print("Predicted Choice Shares:")
     print(choice_shares)
@@ -156,7 +161,8 @@ print("3. Percentage of houses with fireplaces:", (df['fireplaces'] == 1).mean()
 
 if model_results is not None:
     print("4. Most influential factors in house choice (based on model coefficients):")
-    coefficients = model_results.params.abs().sort_values(ascending=False)
+    coefficients = pd.Series(model_results.params, index=model_results.model.exog_names)
+    coefficients = coefficients.abs().sort_values(ascending=False)
     for feature, coef in coefficients.items():
         print(f"   - {feature}: {coef}")
 
