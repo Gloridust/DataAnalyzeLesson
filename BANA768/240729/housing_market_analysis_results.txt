@@ -1,0 +1,39 @@
+Housing Market Analysis Results
+
+Model Summary:
+                          MNLogit Regression Results                          
+==============================================================================
+Dep. Variable:                      y   No. Observations:                 5796
+Model:                        MNLogit   Df Residuals:                     5789
+Method:                           MLE   Df Model:                            6
+Date:                Mon, 29 Jul 2024   Pseudo R-squ.:                 0.06771
+Time:                        14:58:33   Log-Likelihood:                -3440.7
+converged:                       True   LL-Null:                       -3690.6
+Covariance Type:            nonrobust   LLR p-value:                9.497e-105
+==============================================================================
+       y=1       coef    std err          z      P>|z|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1            -0.2981      0.036     -8.297      0.000      -0.368      -0.228
+x2             0.0293      0.068      0.432      0.666      -0.103       0.162
+x3            -0.0198      0.004     -5.554      0.000      -0.027      -0.013
+x4         -1.426e-05   7.37e-07    -19.350      0.000   -1.57e-05   -1.28e-05
+x5             8.0439      0.493     16.316      0.000       7.078       9.010
+x6             8.1163      0.494     16.421      0.000       7.148       9.085
+x7             8.1211      0.492     16.495      0.000       7.156       9.086
+==============================================================================
+
+Predicted Choice Shares:
+[0.93579256 0.06420744]
+
+Key Insights:
+1. Most popular number of bedrooms: 3
+2. Average cash price: $420027.61
+3. Percentage of houses with fireplaces: 24.84%
+4. Most influential factors in house choice (based on model coefficients):
+   - 6: 8.121051578047018
+   - 5: 8.11633498877868
+   - 4: 8.043946716992018
+   - 0: -0.2980628479306476
+   - 1: 0.029251725668654034
+   - 2: -0.019848801128907665
+   - 3: -1.4258425460652306e-05
