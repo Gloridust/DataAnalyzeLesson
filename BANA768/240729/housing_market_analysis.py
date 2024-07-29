@@ -12,8 +12,16 @@ df_test = pd.read_csv('HousingMarketTest.csv')
 
 # Data preprocessing
 def preprocess_data(df):
+    # Print original 'bedrooms' data
+    print("Original 'bedrooms' data:")
+    print(df['bedrooms'].value_counts(dropna=False))
+    
     # Convert 'bedrooms' to numeric, handling non-numeric values
-    df['bedrooms'] = pd.to_numeric(df['bedrooms'], errors='coerce')
+    df['bedrooms'] = pd.to_numeric(df['bedrooms'].astype(str).str.extract('(\d+)', expand=False), errors='coerce')
+    
+    # Print processed 'bedrooms' data
+    print("\nProcessed 'bedrooms' data:")
+    print(df['bedrooms'].value_counts(dropna=False))
     
     # Convert 'fireplaces' to binary
     df['fireplaces'] = (df['fireplaces'] == 'yes').astype(int)
@@ -60,7 +68,7 @@ def plot_price_vs_sqft(df):
     plt.close()
 
 def plot_preference_heatmap(df):
-    if 'preference' in df.columns:
+    if 'preference' in df.columns and not df['bedrooms'].isna().all():
         pivot = df.pivot_table(values='preference', index='bedrooms', columns='fireplaces', aggfunc='mean')
         plt.figure(figsize=(10, 6))
         sns.heatmap(pivot, annot=True, cmap='YlGnBu')
@@ -68,7 +76,7 @@ def plot_preference_heatmap(df):
         plt.savefig('preference_heatmap.png')
         plt.close()
     else:
-        print("'preference' column not found in the dataset. Skipping preference heatmap.")
+        print("Cannot create preference heatmap due to missing data.")
 
 plot_bedroom_distribution(df)
 plot_price_vs_sqft(df)
