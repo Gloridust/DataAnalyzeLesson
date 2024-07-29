@@ -19,6 +19,9 @@ def preprocess_data(df):
     # Convert 'bedrooms' to numeric, handling non-numeric values
     df['bedrooms'] = pd.to_numeric(df['bedrooms'].astype(str).str.extract('(\d+)', expand=False), errors='coerce')
     
+    # Fill NaN values in 'bedrooms' with median
+    df['bedrooms'] = df['bedrooms'].fillna(df['bedrooms'].median())
+    
     # Print processed 'bedrooms' data
     print("\nProcessed 'bedrooms' data:")
     print(df['bedrooms'].value_counts(dropna=False))
@@ -27,7 +30,7 @@ def preprocess_data(df):
     df['fireplaces'] = (df['fireplaces'] == 'yes').astype(int)
     
     # Handle numeric columns
-    numeric_columns = ['bedrooms', 'averagecostpersquarefootcomparisons', 'cashprice']
+    numeric_columns = ['averagecostpersquarefootcomparisons', 'cashprice']
     for col in numeric_columns:
         df[col] = pd.to_numeric(df[col], errors='coerce')
     
@@ -116,9 +119,9 @@ def fit_mnl_model(train):
         print(f"Missing features: {missing_features}. Cannot fit the model.")
         return None
     
-    # Convert to numpy arrays
-    y = train['choice'].values
-    X = train[features].values
+    # Convert to numpy arrays and ensure all data is numeric
+    y = train['choice'].values.astype(float)
+    X = train[features].values.astype(float)
     
     # Fit the model
     model = MNLogit(y, X)
@@ -148,7 +151,7 @@ def predict_choice_shares(model, test_data):
         print(f"Missing features in test data: {missing_features}. Cannot predict choice shares.")
         return None
     
-    X_test = test_data[features].values
+    X_test = test_data[features].values.astype(float)
     predictions = model.predict(X_test)
     
     # Calculate average choice shares
