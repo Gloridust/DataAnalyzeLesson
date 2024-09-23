@@ -19,11 +19,11 @@ def find_prime_factors(n):
             i += 1
     return factors
 
-n = int(input("请输入一个正整数: "))
+num = int(input("请输入一个正整数: "))
 
-if is_prime(n):
-    print(f"{n} 是素数")
+if is_prime(num):
+    print(f"{num} 是素数")
 else:
-    print(f"{n} 不是素数")
+    print(f"{num} 不是素数")
     prime_factors = find_prime_factors(n)
-    print(f"{n} 的素数因子是: {prime_factors}")
+    print(f"{num} 的素数因子是: {prime_factors}")
