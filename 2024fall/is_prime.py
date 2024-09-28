@@ -3,7 +3,7 @@ nums = []
 def is_prime(n):
     if n <= 1:
         return False
-    for i in range(2, int(n ** 0.5) + 1):
+    for i in range(2,n):
         if n % i == 0:
             return False
     return True
@@ -19,7 +19,12 @@ def find_prime_factors(n):
             i += 1
     return factors
 
-num = int(input("请输入一个正整数: "))
+num = input("请输入一个正整数: ")
+if num == str(num):
+    pass
+else:
+    print("你输入的")
+    pass
 
 if is_prime(num):
     print(f"{num} 是素数")
