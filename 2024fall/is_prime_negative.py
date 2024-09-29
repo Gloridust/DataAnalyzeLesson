@@ -43,7 +43,6 @@ def analyze_number(n):
                f"{n} 的所有因子是: {factors}\n" \
                f"{n} 的素数因子是: {prime_factors}"
 
-# 主程序
 while True:
     try:
         num = int(input("请输入一个整数 (输入0退出): "))
