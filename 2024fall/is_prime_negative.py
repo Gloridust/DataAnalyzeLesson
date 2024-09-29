@@ -1,13 +1,13 @@
 def is_prime(n):
-    if n < 2:
+    if n <= 1:
         return False
-    for i in range(2, int(n**0.5) + 1):
+    for i in range(2, int(abs(n)**0.5) + 1):
         if n % i == 0:
             return False
     return True
 
 def find_prime_factors(n):
-    n = abs(n)  # 处理负数
+    n = abs(n)
     i = 2
     factors = []
     while n > 1:
@@ -18,38 +18,30 @@ def find_prime_factors(n):
             i += 1
     return factors
 
-def find_factors(n):
-    n = abs(n)  # 处理负数
-    factors = []
-    for i in range(1, int(n**0.5) + 1):
-        if n % i == 0:
-            factors.append(i)
-            if i != n // i:
-                factors.append(n // i)
-    return sorted(factors)
-
-def analyze_number(n):
-    if n == 0:
-        return "0 既不是素数也不是合数,它没有因子。"
+def check_prime(num):
+    if num == 0:
+        return "0 既不是素数也不是合数"
     
-    abs_n = abs(n)
+    is_negative = num < 0
+    abs_num = abs(num)
     
-    if is_prime(abs_n):
-        return f"{n} 是{'负' if n < 0 else '正'}素数"
+    if is_prime(abs_num):
+        result = f"{num} 是素数" if not is_negative else f"{num} 的绝对值 {abs_num} 是素数"
     else:
-        factors = find_factors(n)
-        prime_factors = find_prime_factors(n)
-        return f"{n} 不是素数\n" \
-               f"{n} 的所有因子是: {factors}\n" \
-               f"{n} 的素数因子是: {prime_factors}"
+        result = f"{num} 不是素数" if not is_negative else f"{num} 的绝对值 {abs_num} 不是素数"
+        prime_factors = find_prime_factors(abs_num)
+        result += f"\n{abs_num} 的素数因子是: {prime_factors}"
+    
+    return result
 
+# 主程序
 while True:
     try:
-        num = int(input("请输入一个整数 (输入0退出): "))
-        if num == 0:
-            print("程序结束。")
-            break
-        result = analyze_number(num)
-        print(result)
+        num = int(input("请输入一个整数 (输入 'q' 退出): "))
+        print(check_prime(num))
     except ValueError:
-        print("请输入有效的整数。")
+        user_input = input("无效输入。是否要退出？(y/n): ")
+        if user_input.lower() == 'y':
+            break
+        else:
+            continue
