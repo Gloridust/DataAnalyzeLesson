@@ -1,44 +1,57 @@
 from langchain_openai import ChatOpenAI
-from langchain_experimental.sql import SQLDatabaseChain
-from langchain_core.prompts import PromptTemplate
-from langchain.sql_database import SQLDatabase
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Float
+from langchain_community.utilities import SQLDatabase
+from langchain.chains import create_sql_query_chain
+from langchain_core.prompts import ChatPromptTemplate
 from config import OPENAI_API_BASE, OPENAI_API_KEY
 
 import os
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
 os.environ["OPENAI_API_BASE"] = OPENAI_API_BASE
 
-# 创建一个示例 SQLite 数据库
-engine = create_engine('sqlite:///example.db')
-metadata = MetaData()
-
-# 定义一个示例表
-products = Table('products', metadata,
-    Column('id', Integer, primary_key=True),
-    Column('name', String),
-    Column('category', String),
-    Column('price', Float)
-)
-
-# 创建表并插入一些示例数据
-metadata.create_all(engine)
-with engine.connect() as conn:
-    conn.execute(products.insert(), [
-        {"name": "Laptop", "category": "Electronics", "price": 1000},
-        {"name": "Smartphone", "category": "Electronics", "price": 500},
-        {"name": "Desk Chair", "category": "Furniture", "price": 200},
-        {"name": "Coffee Table", "category": "Furniture", "price": 150}
-    ])
-
-# 初始化数据库和语言模型
-db = SQLDatabase.from_engine(engine)
+# 初始化语言模型
 llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, openai_api_base=OPENAI_API_BASE)
 
-# 创建 SQL 数据库链
-db_chain = SQLDatabaseChain.from_llm(llm, db, verbose=True)
+# 连接到 SQLite 数据库（这里使用内存数据库作为示例）
+db = SQLDatabase.from_uri("sqlite:///:memory:")
 
-# 使用自然语言查询数据库
-query = "What is the average price of Electronics products?"
-result = db_chain.run(query)
-print(result)
+# 创建示例表和数据
+db.run("CREATE TABLE employees (id INTEGER PRIMARY KEY, name TEXT, department TEXT, salary INTEGER)")
+db.run("INSERT INTO employees (name, department, salary) VALUES ('Alice', 'Engineering', 80000)")
+db.run("INSERT INTO employees (name, department, salary) VALUES ('Bob', 'Sales', 70000)")
+db.run("INSERT INTO employees (name, department, salary) VALUES ('Charlie', 'Marketing', 75000)")
+
+# 创建 SQL 查询链
+sql_chain = create_sql_query_chain(llm, db)
+
+# 使用自然语言生成 SQL 查询
+user_query = "列出所有员工的姓名和他们的部门"
+sql_query = sql_chain.invoke({"question": user_query})
+print(f"生成的 SQL 查询: {sql_query}")
+
+# 执行生成的 SQL 查询
+result = db.run(sql_query)
+print(f"查询结果: {result}")
+
+# 创建一个更复杂的自然语言到 SQL 的链
+template = """基于以下请求创建一个 SQL 查询：
+
+{question}
+
+SQL 查询：
+"""
+prompt = ChatPromptTemplate.from_template(template)
+
+sql_response_chain = prompt | llm
+
+# 使用更复杂的自然语言查询
+complex_query = "谁是薪水最高的员工，他的薪水是多少？"
+sql_response = sql_response_chain.invoke({"question": complex_query})
+print(f"生成的 SQL 查询: {sql_response.content}")
+
+# 执行生成的 SQL 查询
+try:
+    result = db.run(sql_response.content)
+    print(f"查询结果: {result}")
+except Exception as e:
+    print(f"执行查询时出错: {e}")
+    print("生成的查询可能需要手动调整。")
