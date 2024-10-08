@@ -7,3 +7,4 @@ BANA780/240621/data/train_transaction.csv
 BANA780/240621/data/CSVCutTool.py
 
 config.py
+__pycache__/
