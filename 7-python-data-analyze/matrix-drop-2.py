@@ -1,8 +1,3 @@
-# 定义矩阵 A
-A = [[1, 2, 3], 
-     [4, 5, 6],
-     [7, 8, 9]]
-
 def take_sub_deter(local_deter, row_to_delete, column_to_delete):
     sub_deter = []
     for i in range(len(local_deter)):
@@ -43,6 +38,11 @@ def print_matrix(matrix):
 
 # 主程序
 if __name__ == "__main__":
+    # 定义矩阵 A
+    A = [[1, 2, 3], 
+        [4, 5, 6],
+        [7, 8, 9]]
+    
     print("原始矩阵 A:")
     print_matrix(A)
     
