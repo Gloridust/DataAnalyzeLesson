@@ -1,41 +1,50 @@
-
 class Matrix:
     def __init__(self, matrix):
+        # 初始化方法，用于创建类的实例时传入矩阵数据
         self.matrix = matrix
 
-    def take_sub_deter(self, row_to_delete, column_to_delete):
-        sub_deter = []
-        for i in range(len(self.matrix)):
-            if i != row_to_delete:
-                new_row = []
-                for j in range(len(self.matrix[i])):
-                    if j != column_to_delete:
-                        new_row.append(self.matrix[i][j])
-                sub_deter.append(new_row)
-        return sub_deter
-
-    def calc_deter(self):
-        n = len(self.matrix)
+    @staticmethod
+    def calc_determinant(matrix):
+        # 计算给定矩阵的行列式
+        n = len(matrix)
         
         # 基本情况：1x1 矩阵
         if n == 1:
-            return self.matrix[0][0]
+            return matrix[0][0]
         
         # 基本情况：2x2 矩阵
         if n == 2:
-            return self.matrix[0][0] * self.matrix[1][1] - self.matrix[0][1] * self.matrix[1][0]
+            return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
         
         # 递归情况：nxn 矩阵 (n > 2)
         det_value = 0
         for j in range(n):
-            sub_det = self.take_sub_deter(0, j)
-            cofactor = self.matrix[0][j] * ((-1) ** j) # 代数余子式
-            det_value += cofactor * Matrix(sub_det).calc_deter()
+            sub_det = Matrix.take_sub_deter_static(matrix, 0, j)
+            cofactor = matrix[0][j] * ((-1) ** j)  # 代数余子式
+            det_value += cofactor * Matrix.calc_determinant(sub_det)
         
         return det_value
 
     @staticmethod
+    def take_sub_deter_static(matrix, row_to_delete, column_to_delete):
+        # 从给定矩阵中删除指定的行和列，返回子矩阵
+        sub_deter = []
+        for i in range(len(matrix)):
+            if i != row_to_delete:
+                new_row = []
+                for j in range(len(matrix[i])):
+                    if j != column_to_delete:
+                        new_row.append(matrix[i][j])
+                sub_deter.append(new_row)
+        return sub_deter
+
+    def calc_deter(self):
+        # 计算当前实例矩阵的行列式
+        return Matrix.calc_determinant(self.matrix)
+
+    @staticmethod
     def print_matrix(matrix):
+        # 打印矩阵的静态方法
         for row in matrix:
             print("[", end=" ")
             for elem in row:
