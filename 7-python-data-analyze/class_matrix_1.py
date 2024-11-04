@@ -34,7 +34,7 @@ class Matrix:
         
         return det_value
 
-    # @staticmethod
+    @staticmethod
     def print_matrix(matrix):
         for row in matrix:
             print("[", end=" ")
