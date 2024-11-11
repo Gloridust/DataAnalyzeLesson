@@ -2,7 +2,6 @@ class Matrix:
     def __init__(self, matrix):
         # 初始化方法，用于创建类的实例时传入矩阵数据
         self.matrix = matrix
-
     @staticmethod
     def calc_determinant(matrix):
         # 计算给定矩阵的行列式
@@ -13,17 +12,18 @@ class Matrix:
             return matrix[0][0]
         
         # 基本情况：2x2 矩阵
-        if n == 2:
+        elif n == 2:
             return matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]
         
         # 递归情况：nxn 矩阵 (n > 2)
-        det_value = 0
-        for j in range(n):
-            sub_det = Matrix.take_sub_deter_static(matrix, 0, j)
-            cofactor = matrix[0][j] * ((-1) ** j)  # 代数余子式
-            det_value += cofactor * Matrix.calc_determinant(sub_det)
+        sum = 0
+        for column_num in range(len(matrix[0])):
+            temp_sub_deter = Matrix(Matrix.take_sub_deter_static(matrix, 0, column_num))
+            sum = (sum + 
+                  matrix[0][column_num] * ((-1) ** (1 + column_num + 1)) 
+                  * temp_sub_deter.calc_deter())
         
-        return det_value
+        return sum
 
     @staticmethod
     def take_sub_deter_static(matrix, row_to_delete, column_to_delete):
